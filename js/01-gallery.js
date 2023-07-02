@@ -37,7 +37,6 @@ function onClick (e){
 })
 instance.show()
 
-window.addEventListener("keydown", onEsc);
 
 function onEsc (e){
     
