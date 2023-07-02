@@ -17,15 +17,9 @@ gallery.insertAdjacentHTML("afterbegin", markup);
 gallery.addEventListener('click', onClick);
 
 function onClick (e){
-    e.preventDefault();
-
-    if(!e.target.classList.contains('gallery__image')){
-        return;
-    };
- 
-    let lightbox = new SimpleLightbox('.gallery a', {captions:true,captionSelector:'img',captionsData:"alt",captionDelay:250,animationSpeed:350})
+    let lightbox = new SimpleLightbox('.gallery a', {captionsData:"alt",captionDelay:250})
     
-   lightbox.open()
+    lightbox.open()
 
 };
 

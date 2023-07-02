@@ -24,14 +24,17 @@ gallery.addEventListener('click', onClick);
 function onClick (e){
     e.preventDefault();
 
-    if(!e.target.classList.contains('gallery__image')){
+    if(e.target.nodeName !== 'IMG'){
         return;
     };
  
     const instance = basicLightbox.create(`
     <img src="${e.target.dataset.source}" width="800" height="600">
     
-`)
+`, {
+    onShow: (instance) => window.addEventListener("keydown", onEsc),
+    onClose: (instance) => window.removeEventListener
+})
 instance.show()
 
 window.addEventListener("keydown", onEsc);
